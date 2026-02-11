@@ -1,0 +1,6 @@
+<mxCell id="legend-edge-main" value="主连线（GCP 蓝色，styleId=2_F4Z3EIYrPrO-kPp1a8-2）" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#4285F4;endArrow=block;endFill=1;dashed=0;" edge="1" parent="1" source="legend-node-a" target="legend-node-b">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+<mxCell id="legend-edge-data" value="数据/消息链路（虚线，按数据流向）" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#4285F4;endArrow=block;endFill=1;dashed=1;dashPattern=8 4;" edge="1" parent="1" source="legend-node-b" target="legend-node-a">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
