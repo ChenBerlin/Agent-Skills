@@ -1,0 +1,51 @@
+<mxfile host="app.diagrams.net" modified="2026-01-01T00:00:00.000Z" agent="codex" version="24.7.17">
+  <diagram id="arch-diagram" name="Architecture">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Large group (replace with real domain/layer groups) -->
+        <mxCell id="zone_app" value="Application Zone" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F0FE;strokeColor=#8AB4F8;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="80" width="900" height="420" as="geometry"/>
+        </mxCell>
+
+        <!-- Current service -->
+        <mxCell id="svc_a" value="service-a" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5F6368;fontSize=12;" vertex="1" parent="zone_app">
+          <mxGeometry x="60" y="80" width="180" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Multi-capability decomposition (small dashed group) -->
+        <mxCell id="grp_svc_a_modules" value="service-a modules" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#5F6368;dashed=1;" vertex="1" parent="zone_app">
+          <mxGeometry x="280" y="50" width="320" height="170" as="geometry"/>
+        </mxCell>
+        <mxCell id="mod_a1" value="query-module" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5F6368;" vertex="1" parent="zone_app">
+          <mxGeometry x="300" y="90" width="130" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="mod_a2" value="process-module" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5F6368;" vertex="1" parent="zone_app">
+          <mxGeometry x="450" y="90" width="130" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- External dependency -->
+        <mxCell id="ext_db" value="external-db" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3CD;strokeColor=#E0A800;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="180" width="180" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Data flow edge: provider -> consumer (blue solid) -->
+        <mxCell id="edge_data_1" value="RPC(Query) data flow" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1A73E8;strokeWidth=2;dashed=0;endArrow=block;endFill=1;" edge="1" parent="1" source="ext_db" target="mod_a1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Messaging edge: dashed -->
+        <mxCell id="edge_msg_1" value="Kafka topic" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1A73E8;strokeWidth=2;dashed=1;endArrow=block;endFill=1;" edge="1" parent="1" source="mod_a2" target="svc_a">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Legend -->
+        <mxCell id="legend_box" value="Legend&#xa;1) Blue solid arrow: non-message link (data/control per label)&#xa;2) Blue dashed arrow: message/async link&#xa;3) Arrow direction in data-flow view: data provider -&gt; data consumer&#xa;4) White node: current&#xa;5) Blue node: previous-stage changed/new&#xa;6) Red node: planning (solid border existing, dashed border not-yet-built)&#xa;7) Yellow node: external dependency&#xa;8) Strikethrough label: removed/to-be-removed&#xa;9) Dashed group: small module grouping&#xa;10) Blue zone background: large domain/layer grouping" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5F6368;align=left;verticalAlign=top;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="80" y="540" width="1180" height="240" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
