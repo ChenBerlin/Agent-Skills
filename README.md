@@ -10,6 +10,7 @@
 
 - `skills/code-architecture-drawio`：用于阅读理解项目代码并生成可导入 draw.io 的架构图 XML（包含图例、线型语义、分层与生命周期状态规范）。
 - `skills/call-chain-mapper`：用于从代码中梳理项目调用链路，覆盖 HTTP/RPC/MQ/定时任务等入口，按 entry/service/gateway/repo 分层追踪，并聚合高重复链路后按业务模块输出文字化链路说明。
+- `skills/service-chain-gcp-drawio`：用于根据服务链路与模块划分生成 draw.io XML 服务架构图，强制包含图例、GCP Zones 模块分组、链路聚合与线型/方向规范（主连线样式 ID `2_F4Z3EIYrPrO-kPp1a8-2`）。
 
 ## 使用教程
 
