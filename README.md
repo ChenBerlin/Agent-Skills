@@ -9,6 +9,7 @@
 当前仓库包含以下技能：
 
 - `skills/code-architecture-drawio`：用于阅读理解项目代码并生成可导入 draw.io 的架构图 XML（包含图例、线型语义、分层与生命周期状态规范）。
+- `skills/call-chain-mapper`：用于从代码中梳理项目调用链路，覆盖 HTTP/RPC/MQ/定时任务等入口，按 entry/service/gateway/repo 分层追踪，并聚合高重复链路后按业务模块输出文字化链路说明。
 
 ## 使用教程
 
@@ -36,6 +37,13 @@ find skills -maxdepth 2 -name "SKILL.md"
 1. 让 Agent 阅读项目代码，提取服务、模块、依赖与数据流。
 2. 根据技能规范输出 draw.io XML。
 3. 将 XML 导入 draw.io（diagrams.net）进行查看与微调。
+
+### 5. 典型用法（以 call-chain-mapper 为例）
+
+1. 让 Agent 先识别项目中的入口（HTTP、RPC、MQ 消费组、定时任务等）。
+2. 从每个入口向下追踪 service/gateway/repo 调用路径，并记录关键副作用（DB 写入、外部 RPC、MQ 发送等）。
+3. 将高度相似的链路聚合为“主链路 + 等价入口变体”。
+4. 按业务能力模块输出调用链说明（可直接套用 `references/output-template.md`）。
 
 ## 作者
 
